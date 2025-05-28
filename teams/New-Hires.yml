@@ -9,6 +9,7 @@
 
 name: New-Hires
 policies:
+  - path: ../lib/dns-resolvers.policies.yml
   - path: ../lib/macos-device-health.policies.yml
   - path: ../lib/windows-device-health.policies.yml
 queries:
@@ -18,9 +19,16 @@ agent_options:
   path: ../lib/agent-options.yml
 controls:
   scripts:
+    - path: ../lib/update-dns.sh
     - path: ../lib/remove-zoom-artifacts.script.sh
     - path: ../lib/set-timezone.script.sh
 team_settings:
+  webhook_settings:
+    failing_policies_webhook:
+      enable_failing_policies_webhook: true
+      destination_url: https://myexample.net/webhook_handler
+      host_batch_size: 0
+      policy_ids:
   secrets:
     - secret: "$FLEET_NEW_HIRES_ENROLL_SECRET"
 software:
