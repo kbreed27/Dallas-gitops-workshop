@@ -22,6 +22,7 @@ controls:
     - path: ../lib/update-dns.sh
     - path: ../lib/remove-zoom-artifacts.script.sh
     - path: ../lib/set-timezone.script.sh
+    - path: ../lib/zoom-config.sh
 team_settings:
   webhook_settings:
     failing_policies_webhook:
